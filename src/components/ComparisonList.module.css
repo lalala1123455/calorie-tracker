@@ -1,0 +1,143 @@
+.container {
+    margin-top: 32px;
+    padding-bottom: 60px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item {
+    position: relative;
+    padding: 16px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #fff;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bestItem {
+    border: 3px solid var(--primary-color);
+    background: #fff9fb;
+    /* Very pale pink */
+}
+
+/* Ribbon */
+.ribbon {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 100px;
+    padding: 6px 0;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-align: center;
+    transform: rotate(-45deg);
+    left: -28px;
+    top: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-right: 24px;
+    /* Space for delete btn */
+}
+
+.itemName {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.efficiencyBadge {
+    background: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: var(--pill-radius);
+    color: var(--accent-text);
+    font-weight: 800;
+}
+
+.efficiencyValue {
+    font-size: 1.2rem;
+}
+
+.unit {
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detailRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    border-bottom: 1px dashed #e8e8e0;
+    padding-bottom: 2px;
+}
+
+.detailRow:last-child {
+    border-bottom: none;
+}
+
+.subDetails {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: right;
+    margin-top: 4px;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f0f0e8;
+    color: #a0a098;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.deleteButton:hover {
+    background: #ffcccc;
+    color: #ff5555;
+}

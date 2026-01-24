@@ -1,0 +1,91 @@
+/* Google Fonts Import: M PLUS Rounded 1c */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+:root {
+  /* Color Palette - Kawaii & Friendly */
+  --bg-color: #fcfcf5;
+  /* Off-white/Cream */
+  --surface-color: #ffffff;
+  --surface-shadow: 0 4px 12px rgba(133, 133, 110, 0.1);
+
+  /* Pastels */
+  --primary-color: #ffb7c5;
+  /* Pastel Pink */
+  --primary-dark: #ff9eb0;
+  --secondary-color: #bbf2d6;
+  /* Mint Green */
+  --secondary-dark: #9ce0c0;
+  --accent-color: #fff4ba;
+  /* Cream Yellow */
+  --accent-text: #8a7a40;
+
+  --text-primary: #5c5c50;
+  /* Softer Dark Gray/Brown */
+  --text-secondary: #999988;
+  --border-color: #e8e8e0;
+
+  /* Spacing & Layout */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --border-radius: 24px;
+  /* Larger radius for friendly look */
+  --pill-radius: 50px;
+
+  /* Typography */
+  --font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* Cute pattern background optional */
+  background-image: radial-gradient(#e8e8e0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px;
+  padding: var(--spacing-md);
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+button,
+input {
+  font-family: inherit;
+  color: var(--text-primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+/* Utilities */
+.card-panel {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--surface-shadow);
+  border: 2px solid #fff;
+}

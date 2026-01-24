@@ -1,0 +1,156 @@
+.container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+    /* For animations */
+}
+
+/* Switcher */
+.switcher {
+    display: flex;
+    background: #f0f0e8;
+    border-radius: var(--pill-radius);
+    padding: 4px;
+    position: relative;
+}
+
+.switchBtn {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--pill-radius);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 1;
+}
+
+.switchBtn.active {
+    color: var(--text-primary);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    color: var(--primary-dark);
+}
+
+/* Result */
+.resultArea {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.resultValue {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-feature-settings: "palt";
+}
+
+.unit {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 8px;
+    color: var(--text-secondary);
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modeGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fadeIn {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+}
+
+.inputGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.inputGroup label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding-left: 8px;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 14px 16px;
+    /* Pill shape needs height */
+    border-radius: var(--pill-radius);
+    background: #fcfcf9;
+    border: 2px solid #efefe8;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.inputGroup input:focus {
+    border-color: var(--secondary-color);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(187, 242, 214, 0.3);
+}
+
+.addButton {
+    margin-top: 8px;
+    padding: 18px;
+    border-radius: var(--pill-radius);
+    background: var(--primary-color);
+    color: #fff;
+    /* White text on pink */
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(255, 183, 197, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.addButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 183, 197, 0.6);
+    background: var(--primary-dark);
+}
+
+.addButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.addButton:disabled {
+    background: #e0e0d8;
+    color: #a0a098;
+    box-shadow: none;
+    cursor: not-allowed;
+}
