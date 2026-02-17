@@ -6,6 +6,7 @@ interface CalculatorProps {
     onAdd: (
         mode: CalculationMode,
         price: number,
+        name: string,
         // Gram
         calories?: number,
         refWeight?: number,
@@ -30,6 +31,7 @@ export function Calculator({ onAdd }: CalculatorProps) {
 
     // Common
     const [price, setPrice] = useState('');
+    const [productName, setProductName] = useState('');
     const [result, setResult] = useState<number | null>(null);
 
     useEffect(() => {
@@ -69,6 +71,7 @@ export function Calculator({ onAdd }: CalculatorProps) {
             onAdd(
                 mode,
                 parseFloat(price),
+                productName,
                 mode === 'gram' ? parseFloat(calories) : undefined,
                 mode === 'gram' ? parseFloat(refWeight) : undefined,
                 mode === 'gram' ? parseFloat(totalWeight) : undefined,
@@ -77,6 +80,7 @@ export function Calculator({ onAdd }: CalculatorProps) {
             );
             // Reset logic: keep mode, maybe clear price/specifics
             setPrice('');
+            setProductName('');
             if (mode === 'gram') {
                 // Keep refWeight usually
                 setCalories('');
@@ -117,6 +121,16 @@ export function Calculator({ onAdd }: CalculatorProps) {
             </div>
 
             <form onSubmit={handleSubmit} className={styles.form}>
+                {/* Product Name - Common */}
+                <div className={styles.inputGroup}>
+                    <label>商品名 (任意)</label>
+                    <input
+                        type="text"
+                        value={productName} onChange={(e) => setProductName(e.target.value)}
+                        placeholder="例: プロテインバー"
+                    />
+                </div>
+
                 {mode === 'gram' ? (
                     <div className={`${styles.modeGroup} ${styles.fadeIn}`}>
                         <div className={styles.row}>

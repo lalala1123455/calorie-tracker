@@ -21,6 +21,7 @@ export function useHistory() {
     const addItem = (
         mode: CalculationMode,
         price: number,
+        inputName: string,
         // Gram Mode Args
         calories?: number,
         referenceWeight?: number, // default 100
@@ -32,19 +33,20 @@ export function useHistory() {
         if (price <= 0) return;
 
         let totalCalories = 0;
-        let name = `Item #${history.length + 1}`;
+        let name = inputName.trim() || '商品名なし';
+        const suffix = inputName.trim() ? '' : (mode === 'gram' ? ' (Gram)' : ' (Count)');
 
-        // Auto-generate name based on mode
+        // Auto-generate name based on mode if empty
         if (mode === 'gram') {
             // Calculation: (kcal / refWeight) * totalWeight
             if (!calories || !referenceWeight || !totalWeight) return;
             totalCalories = (calories / referenceWeight) * totalWeight;
-            name = `Item #${history.length + 1} (Gram)`;
+            if (!inputName.trim()) name += suffix;
         } else {
             // Calculation: kcalPerPiece * count
             if (!caloriesPerPiece || !count) return;
             totalCalories = caloriesPerPiece * count;
-            name = `Item #${history.length + 1} (Count)`;
+            if (!inputName.trim()) name += suffix;
         }
 
         const efficiency = totalCalories / price;
